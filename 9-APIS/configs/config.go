@@ -1,10 +1,9 @@
 package configs
 
-import viper (
-	"github.com/spf13/viper"
+import (
 	"github.com/go-chi/jwtauth"
+	"github.com/spf13/viper"
 )
-
 
 var cfg *conf
 
@@ -29,10 +28,12 @@ func LoadConfig(path string) (*conf, error) {
 	viper.AutomaticEnv()
 	err := viper.ReadInConfig()
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
-	err = viper.Unmarshal(&cfg)
+	cfg = &conf{}
+	err = viper.Unmarshal(cfg)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
+	return cfg, nil
 }
