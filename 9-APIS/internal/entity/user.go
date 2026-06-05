@@ -7,12 +7,12 @@ import (
 
 type User struct {
 	ID       entity.ID `json:"id"`
-	Name     string    `json:"Name"`
+	Name     string    `json:"name"`
 	Email    string    `json:"email"`
-	Password string    `json:"password"`
+	Password string    `json:"-"`
 }
 
-func Newuser(name, email, password string) (*User, error) {
+func NewUser(name, email, password string) (*User, error) {
 	hash, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 	if err != nil {
 		return nil, err
