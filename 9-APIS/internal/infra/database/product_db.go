@@ -1,7 +1,7 @@
 package database
 
 import (
-	entity "github.com/linusmanuel/backend-engineering/goexpert/9-APIS/internal"
+	entity "github.com/linusmanuel/backend-engineering/goexpert/9-APIS/internal/entity"
 	"gorm.io/gorm"
 )
 
